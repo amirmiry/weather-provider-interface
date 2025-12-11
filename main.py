@@ -39,3 +39,20 @@ class OpenMeteoWeatherProvider(WeatherAbstract):
         respond  = requests.get(self.base_url, params = params  )
         normalize_data = {"temp": respond.json()["current"]["temperature_2m"] , "humidity": respond.json()["current"]["relative_humidity_2m"] }
         return normalize_data
+    
+
+def get_user_input():
+    while True:
+        print("which one of the provider would you like to use?")
+        print("1. OpenWeatherProvider")
+        print("2. OpenMeteoWeatherProvider")
+        answer = input("Enter your choice: ")
+        try:
+            answer = int(answer)
+        except ValueError:
+            print("Please enter a number")
+            continue
+        if 1<= answer<= 2:
+            print("Please enter a number between choices")
+        else:
+            return answer
