@@ -59,9 +59,20 @@ def get_user_input():
         
 
 def call_provider(choice):
-if choice == 1:
-    provider = OpenMeteoWeatherProvider()
-    print(provider.get_current_weather("38.7945952", "-106.5348379"))
-else:
-    provider = OpenWeatherProvider(api_key="0383e3b75f6575ddb62c850609d715b4")
-    print(provider.get_current_weather("38.7945952", "-106.5348379"))
+    if choice == 1:
+        provider = OpenMeteoWeatherProvider()
+        print(provider.get_current_weather("38.7945952", "-106.5348379"))
+    else:
+        provider = OpenWeatherProvider(api_key="0383e3b75f6575ddb62c850609d715b4")
+        print(provider.get_current_weather("38.7945952", "-106.5348379"))
+
+
+# running the application
+def main():
+    choice = get_user_input()
+    call_provider(choice)
+    print("done")
+
+
+if __name__ == "__main__":
+    main()
