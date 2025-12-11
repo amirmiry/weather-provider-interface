@@ -1,4 +1,3 @@
-#modules and global variables
 from  abc import ABC, abstractmethod
 import requests
 
@@ -67,7 +66,7 @@ def call_provider(choice):
         print(provider.get_current_weather("38.7945952", "-106.5348379"))
 
 
-# running the application
+
 def main():
     choice = get_user_input()
     call_provider(choice)
