@@ -17,8 +17,14 @@ class OpenWeatherProvider(WeatherAbstract):
 
 
     def get_current_weather(self , latitude, longitude ):
-        pass
-
+        params = {
+            "lat": latitude,
+            "lon": longitude,
+            "appid": self.api_key
+        }
+        respond = requests.get(self.base_url, params=params)
+        normalize_data = {"temp": float(respond.json()["main"]["temp"])-273.15 , "humidity": respond.json()["main"]["humidity"] }
+        return normalize_data
 
 
 class OpenMeteoWeatherProvider(WeatherAbstract):
