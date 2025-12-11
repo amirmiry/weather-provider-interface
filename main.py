@@ -56,3 +56,12 @@ def get_user_input():
             print("Please enter a number between choices")
         else:
             return answer
+        
+
+def call_provider(choice):
+if choice == 1:
+    provider = OpenMeteoWeatherProvider()
+    print(provider.get_current_weather("38.7945952", "-106.5348379"))
+else:
+    provider = OpenWeatherProvider(api_key="0383e3b75f6575ddb62c850609d715b4")
+    print(provider.get_current_weather("38.7945952", "-106.5348379"))
