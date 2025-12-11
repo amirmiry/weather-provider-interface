@@ -11,7 +11,7 @@ class WeatherAbstract(ABC):
 
 
 class OpenWeatherProvider(WeatherAbstract):
-
+    base_url ="https://pro.openweathermap.org/data/2.5/forecast"
     def __init__(self,  api_key):
         self.api_key = api_key
 
